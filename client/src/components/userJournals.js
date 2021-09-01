@@ -5,13 +5,10 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import NoteCard from "./NoteCard";
 
-export default function UserJournals(props) {
+export default function UserJournals() {
   const [journals, setJournals] = React.useState([]);
-  const { isLoggedIn } = props;
-  console.log("is logein ???", isLoggedIn);
-
   React.useEffect(() => {
-    async function fetchJournal(props) {
+    async function fetchJournal() {
       const data = await FetchUserJournal();
       console.log(data);
       if (data) setJournals((journal) => [...journal, ...data]);

@@ -28,10 +28,14 @@ const journalDetail = (req, res) => {
 };
 
 const createJournal = (req, res) => {
+  let jkt = new Date();
+
   const journal = new Journal({
     title: req.body.title,
     author: req.userId,
     body: req.body.body,
+    created_at: jkt.toLocaleString("en-GB"),
+    updated_at: jkt.toLocaleString("en-GB"),
   });
   journal.save((err, result) => {
     if (err) console.log(err);

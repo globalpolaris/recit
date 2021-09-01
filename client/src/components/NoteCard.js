@@ -9,7 +9,14 @@ import { CardHeader, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 
+const useStyles = makeStyles((theme) => ({
+  body: {
+    wordWrap: "break-word",
+  },
+}));
+
 export default function NoteCard({ props }) {
+  const classes = useStyles();
   return (
     <div>
       <Card>
@@ -25,9 +32,9 @@ export default function NoteCard({ props }) {
             </div>
           }
           title={props.title}
-          subheader={props.createdAt}
+          subheader={props.created_at}
         />
-        <CardContent>
+        <CardContent className={classes.body}>
           <Typography variant="body2">{props.body}</Typography>
         </CardContent>
       </Card>

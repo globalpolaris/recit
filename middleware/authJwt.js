@@ -22,7 +22,6 @@ const checkToken = async (token) => {
 
 const verifyToken = async (req, res, next) => {
   let token = req.headers["x-access-token"];
-  console.log(token);
 
   if (!token) {
     console.log("no tokne");

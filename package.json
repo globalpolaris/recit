@@ -18,6 +18,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "moment-timezone": "^0.5.33",
     "mongoose": "^5.13.4",
     "nanoid": "^3.1.23",
     "nodemon": "^2.0.12"
