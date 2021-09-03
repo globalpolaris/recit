@@ -1,13 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { CardHeader, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
+import DeleteNote from "../adapters/DeleteNoteHandler";
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -15,17 +14,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NoteCard({ props }) {
+export default function NoteCard({ props, changeValue, changeOpen }) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const [msg, setMsg] = React.useState("");
+
+  const handleDelete = async (id) => {
+    try {
+      let response = await DeleteNote(id);
+      if (response === 200) {
+        changeOpen();
+        changeValue(id);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div>
       <Card>
         <CardHeader
           action={
             <div>
-              <IconButton>
+              <IconButton onClick={() => handleDelete(props._id)}>
                 <DeleteIcon />
-              </IconButton>{" "}
+              </IconButton>
               <IconButton>
                 <EditIcon />
               </IconButton>

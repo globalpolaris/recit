@@ -73,12 +73,23 @@ const updateJournal = (req, res) => {
   );
 };
 
-const deleteJournal = (req, res) => {
+const deleteJournal = async (req, res) => {
   const id = req.params.id;
-  Journal.findByIdAndDelete(id, (err, data) => {
-    if (err) res.status(400).send("Failed to delete journal");
-    return res.status(200).send(`Journal has been deleted ${data}`);
+  const userId = req.userId;
+  const journal = await Journal.findById(id, (err, data) => {
+    if (err) err;
+    return data;
   });
+  if (journal) {
+    if (journal.author == userId) {
+      Journal.findByIdAndDelete(id, (err, data) => {
+        if (err) res.status(400).send("Failed to delete journal");
+        return res.status(200).send(`Journal has been deleted ${data}`);
+      });
+    } else return res.status(404).send("Not authorized! :(");
+  } else {
+    return res.status(404).send("Journal not found!");
+  }
 };
 
 module.exports = {
