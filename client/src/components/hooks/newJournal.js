@@ -22,7 +22,7 @@ const useLoginForm = (callback) => {
     e.preventDefault();
     const responses = await NewJournalHandler(values, token);
     if (responses === 201) {
-      window.location = "/journals";
+      window.location = "/notes";
     }
   };
 

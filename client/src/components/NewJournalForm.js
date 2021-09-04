@@ -95,7 +95,7 @@ export default function AddJournal({ submitForm }) {
                   size="small"
                   variant="contained"
                   color="secondary"
-                  onClick={() => (window.location = "/journals")}
+                  onClick={() => (window.location = "/notes")}
                 >
                   Yes
                 </Button>

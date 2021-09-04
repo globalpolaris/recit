@@ -39,7 +39,7 @@ export default function UserJournals() {
       {open && <Snackbar state={open} msg="Note has been deleted!" />}
       <Grid container spacing={3}>
         {journals.length === 0 ? (
-          <h2>You dont have any journals</h2>
+          <h2>You dont have any notes!</h2>
         ) : (
           journals.map((journal) => (
             <Grid item key={journal._id} xs={12} md={6} lg={4}>

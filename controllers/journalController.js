@@ -57,16 +57,22 @@ const createAnonJournal = (req, res) => {
 
 const updateJournal = (req, res) => {
   const id = req.params.id;
+  const userId = req.userId;
+  let jkt = new Date();
   Journal.findByIdAndUpdate(
     id,
     {
       title: req.body.title,
       body: req.body.body,
+      updated_at: jkt.toLocaleString("en-GB"),
     },
     (err, document) => {
+      if (userId != document.author) {
+        return res.status(403).send("Not authorized!");
+      }
       if (err)
         return res
-          .status(500)
+          .status(404)
           .send("Couldn't find the journal you're looking for :(");
       return res.status(200).send({ message: "Journal has been updated!" });
     }

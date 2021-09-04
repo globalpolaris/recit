@@ -171,7 +171,7 @@ export default function PersistentDrawerLeft(props) {
             button
             key="notes"
             component="a"
-            href={isLoggedIn ? "/journals" : "login"}
+            href={isLoggedIn ? "/notes" : "login"}
           >
             <ListItemIcon>{isLoggedIn ? <MenuBookIcon /> : null}</ListItemIcon>
             <ListItemText

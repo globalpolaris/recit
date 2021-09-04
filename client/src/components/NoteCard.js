@@ -5,12 +5,16 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { CardHeader, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
 import DeleteNote from "../adapters/DeleteNoteHandler";
+import EditNote from "./EditNoteModal";
 
 const useStyles = makeStyles((theme) => ({
   body: {
     wordWrap: "break-word",
+  },
+  button: {
+    display: "flex",
+    flexDirection: "row",
   },
 }));
 
@@ -36,17 +40,15 @@ export default function NoteCard({ props, changeValue, changeOpen }) {
       <Card>
         <CardHeader
           action={
-            <div>
+            <div className={classes.button}>
               <IconButton onClick={() => handleDelete(props._id)}>
                 <DeleteIcon />
               </IconButton>
-              <IconButton>
-                <EditIcon />
-              </IconButton>
+              <EditNote title={props.title} body={props.body} id={props._id} />
             </div>
           }
           title={props.title}
-          subheader={props.created_at}
+          subheader={props.updated_at}
         />
         <CardContent className={classes.body}>
           <Typography variant="body2">{props.body}</Typography>

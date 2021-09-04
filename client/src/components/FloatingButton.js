@@ -28,7 +28,7 @@ export default function FloatingButton() {
     <div>
       <Fab
         component={Link}
-        to="/create-journal"
+        to="/create-note"
         color="secondary"
         className={classes.button}
         aria-label="add"

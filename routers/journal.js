@@ -9,7 +9,7 @@ router
   .post(verifyToken, journalController.createJournal);
 
 router.get("/api/journals/:id", journalController.journalDetail);
-router.put("/api/journals/:id", journalController.updateJournal);
+router.put("/api/journals/:id", verifyToken, journalController.updateJournal);
 router.delete(
   "/api/journals/:id",
   verifyToken,

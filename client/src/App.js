@@ -6,6 +6,7 @@ import Logout from "./adapters/Logout";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import AddJournal from "./pages/AddJournal";
+import NotFound from "./pages/404";
 
 const theme = createTheme({
   palette: {
@@ -37,11 +38,12 @@ function App() {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/journals" component={Journals} />
+          <Route path="/notes" component={Journals} />
           <Route path="/signup" component={RegisterPage} />
-          <Route path="/create-journal" component={AddJournal} />
+          <Route path="/create-note" component={AddJournal} />
           <Route path="/login" component={LoginPage} />
           <Route path="/logout" component={Logout} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </ThemeProvider>
