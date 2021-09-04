@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import { Button } from "@material-ui/core";
 import instance from "../adapters/AxiosInstance";
+import AlertSnackbar from "./Snackbar";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -49,14 +50,6 @@ export default function EditNote({ title, body, id }) {
   const [newBody, setNewBody] = React.useState(body);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const token = localStorage.getItem("accessToken");
-
-  const config = {
-    title: newTitle,
-    body: newBody,
-    headers: {
-      "x-access-token": token,
-    },
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

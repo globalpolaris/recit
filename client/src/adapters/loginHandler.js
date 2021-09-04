@@ -13,7 +13,7 @@ const LoginHandler = async (user) => {
       const isToken = localStorage.getItem("accessToken");
       if (isToken) localStorage.removeItem("accessToken");
       localStorage.setItem("accessToken", data.data.accessToken);
-      window.location = "/journals";
+      window.location = "/notes";
     }
   } catch (error) {
     return error.response.status;
