@@ -7,6 +7,7 @@ import { CardHeader, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import DeleteNote from "../adapters/DeleteNoteHandler";
 import EditNote from "./EditNoteModal";
+import Confirmation from "./Confirmation";
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -21,7 +22,10 @@ const useStyles = makeStyles((theme) => ({
 export default function NoteCard({ props, changeValue, changeOpen }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [msg, setMsg] = React.useState("");
+
+  const switchOpen = (condition) => {
+    setOpen(condition);
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -37,11 +41,20 @@ export default function NoteCard({ props, changeValue, changeOpen }) {
 
   return (
     <div>
+      {open && (
+        <Confirmation
+          msg={"Are you sure?"}
+          switchOpen={switchOpen}
+          open={open}
+          handleDelete={handleDelete}
+          id={props._id}
+        />
+      )}
       <Card>
         <CardHeader
           action={
             <div className={classes.button}>
-              <IconButton onClick={() => handleDelete(props._id)}>
+              <IconButton onClick={() => switchOpen(true)}>
                 <DeleteIcon />
               </IconButton>
               <EditNote title={props.title} body={props.body} id={props._id} />
