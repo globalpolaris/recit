@@ -5,7 +5,7 @@ const FetchUser = async () => {
 
   const token = localStorage.getItem("accessToken");
   try {
-    const response = await instance.get(`/user`, {
+    const response = await instance.get(`user`, {
       headers: {
         "x-access-token": token,
       },

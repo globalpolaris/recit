@@ -5,7 +5,7 @@ import instance from "./AxiosInstance";
 const WaitLogout = async () => {
   const token = localStorage.getItem("accessToken");
   try {
-    const response = await instance.post(`/user/logout`, {
+    const response = await instance.post(`user/logout`, {
       token: token,
     });
 

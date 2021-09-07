@@ -6,7 +6,7 @@ const FetchUserJournal = async () => {
     return null;
   }
   try {
-    const response = await instance.get(`/journals`, {
+    const response = await instance.get(`journals`, {
       headers: {
         "x-access-token": token,
       },
