@@ -15,7 +15,6 @@ const corsOptions = {
 };
 
 const mongoose = require("mongoose");
-console.log(DB_HOST, DB_PORT, DB);
 mongoose.connect(MONGODB_CONNECTION_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
