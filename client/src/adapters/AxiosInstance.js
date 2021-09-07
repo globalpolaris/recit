@@ -1,7 +1,7 @@
 const axios = require("axios").default;
 
 const instance = axios.create({
-  baseURL: "https://recit-note-app.herokuapp.com:3002/api/",
+  baseURL: `https://recit-note-app.herokuapp.com:${process.env.port}/api/`,
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
