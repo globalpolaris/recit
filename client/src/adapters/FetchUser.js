@@ -1,6 +1,8 @@
 import instance from "../adapters/AxiosInstance";
 
 const FetchUser = async () => {
+  console.log(process.env.PORT);
+
   const token = localStorage.getItem("accessToken");
   try {
     const response = await instance.get(`/user`, {
