@@ -10,8 +10,8 @@
         "install-client": "cd client && npm install",
         "heroku-postbuild": "npm run install-client && npm run build",
         "server": "nodemon index.js",
-        "develop": "npm run server\" \"npm run start --prefix client\"",
-        "start": "npm run server\" \"npm run start --prefix client\""
+        "develop": "npm run server \"npm run start --prefix client\"",
+        "start": "npm run server \"npm run start --prefix client\""
   },
   "keywords": [],
   "author": "",
