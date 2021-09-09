@@ -11,9 +11,7 @@ const FetchUserJournal = async () => {
         "x-access-token": token,
       },
     });
-    const data = await response;
-
-    return data.data;
+    return response.data;
   } catch (error) {
     console.error(error);
     return error.response.status;
