@@ -7,7 +7,7 @@ const cors = require("cors");
 const { MONGODB_CONNECTION_STRING } = process.env;
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3002;
 console.log(port);
 
 //GET, PUT, POST, DELETE

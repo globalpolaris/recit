@@ -22,6 +22,7 @@ const useLoginForm = (callback, validate) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const responses = await LoginHandler(values);
+    console.log(responses);
     setErrors(validate(values, responses));
     setIsSubmitting(true);
   };
