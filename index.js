@@ -7,7 +7,7 @@ const cors = require("cors");
 const { MONGODB_CONNECTION_STRING } = process.env;
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3002;
 
 //GET, PUT, POST, DELETE
 const corsOptions = {
@@ -33,7 +33,6 @@ db.once("open", () => {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/assets", express.static("public"));
 app.set("view engine", "ejs");
 app.use(journalRouter);
 app.use(userRouter);
