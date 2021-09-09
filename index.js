@@ -12,7 +12,7 @@ console.log(port);
 
 //GET, PUT, POST, DELETE
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "https://recit-note-app.herokuapp.com/"],
 };
 
 const mongoose = require("mongoose");
