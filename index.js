@@ -43,9 +43,4 @@ app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
-// app.get('/', (req, res) => {
-//   const responseText = `Requested at: ${req.myDate.toString()}`;
-//   res.render('./pages/index', { responseText: responseText });
-// });
-
 app.listen(port, () => console.log(`Listening on ${port}`));

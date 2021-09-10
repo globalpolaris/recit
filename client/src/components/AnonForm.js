@@ -61,7 +61,6 @@ export default function AnonForm() {
   };
 
   const handleSubmit = (e) => {
-    console.log("story: " + story);
     e.preventDefault();
     if (!story) setContentError(true);
     else if (story) {
@@ -78,7 +77,6 @@ export default function AnonForm() {
       } catch (err) {
         console.error(err);
       }
-      console.log(story);
     }
   };
 
