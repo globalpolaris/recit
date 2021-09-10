@@ -10,7 +10,6 @@ export default function UserJournals() {
   const [journals, setJournals] = React.useState([]);
   const [values, setValues] = React.useState("");
   const [open, setOpen] = React.useState(false);
-  console.log("jor", journals);
 
   const changeOpen = () => {
     setOpen(true);
@@ -19,7 +18,6 @@ export default function UserJournals() {
   const handleChange = (v) => {
     setValues(v);
     setJournals([]);
-    console.log("update", journals);
   };
 
   React.useEffect(() => {
@@ -27,7 +25,6 @@ export default function UserJournals() {
       let response = FetchUserJournal()
         .catch((error) => console.log(error))
         .then((data) => {
-          console.log("fetch: ", data);
           if (data.length !== 0)
             setJournals((journal) => [...journal, ...data]);
         });

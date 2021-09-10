@@ -19,7 +19,6 @@ const Home = () => {
     }
     getUser();
   }, []);
-  console.log(username, isLoggedIn);
   return (
     <React.Fragment>
       <Headers username={username} isLoggedIn={isLoggedIn} />
